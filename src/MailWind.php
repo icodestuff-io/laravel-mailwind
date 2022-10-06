@@ -17,17 +17,18 @@ class MailWind
         protected ViewFactory $viewFactory,
         protected CacheManager $cacheManager,
         protected CacheRepository $cacheRepository
-    ) {}
+    ) {
+    }
 
     /**
-     * @param string $viewName
-     *
+     * @param  string  $viewName
      * @return string
+     *
      * @throws \Psr\SimpleCache\InvalidArgumentException
      */
     public function compile(string $viewName): string
     {
-        $this->filesystem->ensureDirectoryExists(resource_path("views/vendor/mailwind/"));
+        $this->filesystem->ensureDirectoryExists(resource_path('views/vendor/mailwind/'));
 
         if (!$this->viewFactory->exists($viewName)) {
             throw new ViewException("The view:  $viewName does not exist.");
@@ -46,7 +47,7 @@ class MailWind
             $cachedFileName = $this->generateMailwindTemplate($viewPath);
         }
 
-        $view = Str::remove(".blade.php", $cachedFileName);
+        $view = Str::remove('.blade.php', $cachedFileName);
         $this->cacheManager->set($viewName, $cachedFileName);
 
         return "mailwind::generated.$view";
@@ -54,9 +55,8 @@ class MailWind
 
     private function generateMailwindTemplate(string $viewPath)
     {
-        $fileName = Str::random() . '.blade.php';
+        $fileName = Str::random().'.blade.php';
         $cachedFilePath = resource_path("views/vendor/mailwind/generated/$fileName");
-
 
         $command = 'npx mailwind --input-html ' . $viewPath . ' --output-html ' . $cachedFilePath;
 
