@@ -16,8 +16,8 @@ class MailWindServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('mailwind')
-            ->hasConfigFile()
+            ->name('laravel-mailwind')
+            ->hasConfigFile('mailwind')
             ->hasViews('mailwind')
             ->hasCommand(MailWindCompileCommand::class);
     }

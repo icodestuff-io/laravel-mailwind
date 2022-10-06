@@ -58,7 +58,7 @@ class MailWind
         $fileName = Str::random().'.blade.php';
         $cachedFilePath = resource_path("views/vendor/mailwind/generated/$fileName");
 
-        $command = 'npx mailwind --input-html '.$viewPath.' --output-html '.$cachedFilePath;
+        $command = './vendor/bin/mw --input-html '.$viewPath.' --output-html '.$cachedFilePath;
 
         $output = shell_exec($command);
         if ($output === false) {
