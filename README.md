@@ -1,7 +1,7 @@
 <p align="center"><img src="https://github.com/icodestuff-io/laravel-mailwind/blob/main/mailwind-logo-transparent.png?raw=true" alt="Laravel Enum" width="250" style="margin-bottom: 20px"></p>
 <p align="center">
 <a href="https://packagist.org/packages/icodestuff/laravel-mailwind"><img src="https://img.shields.io/packagist/v/icodestuff/laravel-mailwind.svg?style=flat-square" alt="Latest Version on Packagist"></a>
-<a href="https://packagist.org/packages/bensampo/laravel-enum"><img src="https://img.shields.io/github/workflow/status/icodestuff-io/laravel-mailwind/run-tests?label=tests" alt="GitHub Tests Action Status"></a>
+<a href="https://packagist.org/packages/icodestuff/laravel-mailwind"><img src="https://img.shields.io/github/workflow/status/icodestuff-io/laravel-mailwind/run-tests?label=tests" alt="GitHub Tests Action Status"></a>
 <a href="https://github.com/icodestuff-io/laravel-mailwind/actions?query=workflow%3A'Fix+PHP+code+style+issues'+branch%3Amain'"><img src="https://img.shields.io/github/workflow/status/icodestuff-io/laravel-mailwind/Fix%20PHP%20code%20style%20issues?label=code%20style" alt="GitHub Code Style Action Status"></a>
 <a href="https://packagist.org/packages/icodestuff/laravel-mailwind"><img src="https://img.shields.io/packagist/dt/icodestuff/laravel-mailwind..svg?style=flat-square" alt="Total Downloads"></a>
 </p>
