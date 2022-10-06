@@ -2,11 +2,13 @@
 
 namespace Icodestuff\MailWind;
 
+use Icodestuff\MailWind\Exceptions\NpxFailedException;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Cache\Repository as CacheRepository;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Illuminate\View\Factory as ViewFactory;
+use Illuminate\View\ViewException;
 
 class MailWind
 {
@@ -28,8 +30,7 @@ class MailWind
         $this->filesystem->ensureDirectoryExists(resource_path("views/vendor/mailwind/"));
 
         if (!$this->viewFactory->exists($viewName)) {
-            // @todo: Change to MailwindNotFoundException
-            throw new \Exception("The view:  $viewName does not exist.");
+            throw new ViewException("The view:  $viewName does not exist.");
         }
 
         $viewPath = view($viewName)->getPath();
@@ -57,12 +58,11 @@ class MailWind
         $cachedFilePath = resource_path("views/vendor/mailwind/generated/$fileName");
 
 
-        $command = './mw --input-html ' . $viewPath . ' --output-html ' . $cachedFilePath;
+        $command = 'npx mailwind --input-html ' . $viewPath . ' --output-html ' . $cachedFilePath;
 
         $output = shell_exec($command);
         if ($output === false) {
-            // todo: MailwindFileNotCreated
-            throw new \Exception("failed to create file");
+            throw new NpxFailedException("Failed to run the npx command: `$command`");
         }
 
         return $fileName;
