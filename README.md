@@ -1,28 +1,14 @@
-# Laravel MailWind
+<p align="center"><img src="https://github.com/icodestuff-io/laravel-mailwind/blob/main/mailwind-logo-transparent.png?raw=true" alt="Laravel Enum" width="250" style="margin-bottom: 20px"></p>
+<p align="center">
+<a href="https://packagist.org/packages/icodestuff/mailwind"><img src="https://img.shields.io/packagist/v/icodestuff/laravel-mailwind.svg?style=flat-square" alt="Latest Version on Packagist"></a>
+<a href="https://packagist.org/packages/bensampo/laravel-enum"><img src="https://img.shields.io/github/workflow/status/icodestuff-io/laravel-mailwind/run-tests?label=tests" alt="GitHub Tests Action Status"></a>
+<a href="https://github.com/icodestuff-io/laravel-mailwind/actions?query=workflow%3A'Fix+PHP+code+style+issues'+branch%3Amain'"><img src="https://img.shields.io/github/workflow/status/icodestuff-io/laravel-mailwind/Fix%20PHP%20code%20style%20issues?label=code%20style" alt="GitHub Code Style Action Status"></a>
+<a href="https://packagist.org/packages/icodestuff/mailwind"><img src="https://img.shields.io/packagist/dt/icodestuff/mailwind..svg?style=flat-square" alt="Total Downloads"></a>
+</p>
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/:vendor_slug/:package_slug/run-tests?label=tests)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/:vendor_slug/:package_slug/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/:vendor_slug/:package_slug/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-<!--delete-->
----
-Use TailwindCSS to design your Laravel Mailable
+## About Laravel MailWind
+Use TailwindCSS to design your Laravel Mailables instead of relying on markdown or inline styles.
 
-1. Press the "Use this template" button at the top of this repo to create a new repo with the contents of this skeleton.
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files.
-3. Have fun creating your package.
-4. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
----
-<!--/delete-->
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/:package_name.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/:package_name)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -75,8 +61,6 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
 ## TODO
-- [ ] Create Logo
 - [ ] Write test cases
 - [ ] Test in Real Laravel application
 - [ ] Document setup process
-- [ ]
