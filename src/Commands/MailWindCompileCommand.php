@@ -27,12 +27,13 @@ class MailWindCompileCommand extends Command
     {
         $files = $filesystemManager->files(resource_path('views/mail/template'));
         foreach ($files as $file) {
-            if (!Str::contains($file->getFilename(),'.blade.php')) {
+            if (! Str::contains($file->getFilename(), '.blade.php')) {
                 $this->warn("Invalid file extension for: {$file->getFilename()}. Skipped.");
+
                 continue;
             }
 
-            $viewName = "mail.template." . Str::remove('.blade.php', $file->getFilename());
+            $viewName = 'mail.template.'.Str::remove('.blade.php', $file->getFilename());
             $res = $mailWind->compile($viewName);
             dd($res);
         }
