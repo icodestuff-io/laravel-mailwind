@@ -60,10 +60,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MailWindServiceProvider"
+                "Icodestuff\\MailWind\\MailWindServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "MailWind"
+                "MailWind": "Icodestuff\\MailWind\\Facades\\MailWind"
             }
         }
     },
