@@ -30,7 +30,7 @@ class MailWind
     {
         $this->filesystem->ensureDirectoryExists(resource_path('views/vendor/mailwind/'));
 
-        if (!$this->viewFactory->exists($viewName)) {
+        if (! $this->viewFactory->exists($viewName)) {
             throw new ViewException("The view:  $viewName does not exist.");
         }
 
@@ -58,7 +58,7 @@ class MailWind
         $fileName = Str::random().'.blade.php';
         $cachedFilePath = resource_path("views/vendor/mailwind/generated/$fileName");
 
-        $command = 'npx mailwind --input-html ' . $viewPath . ' --output-html ' . $cachedFilePath;
+        $command = 'npx mailwind --input-html '.$viewPath.' --output-html '.$cachedFilePath;
 
         $output = shell_exec($command);
         if ($output === false) {
