@@ -6,6 +6,8 @@
 <a href="https://packagist.org/packages/icodestuff/mailwind"><img src="https://img.shields.io/packagist/dt/icodestuff/mailwind..svg?style=flat-square" alt="Total Downloads"></a>
 </p>
 
+![mailwind-example](./mailwind-screenshot.png)
+
 ## About Laravel MailWind
 Use TailwindCSS to design your Laravel Mailables instead of relying on markdown or inline styles.
 
