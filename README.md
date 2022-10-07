@@ -84,7 +84,7 @@ like so:
  */
 public function build()
 {
-    return $this->view('mailwind::templates.mailwind-example-template')
+    return $this->view('mailwind::templates.my-template') // maps to: resources/views/vendor/mailwind/templates/my-template.blade.php
         ->subject('MailWind Example Email');
 }
 ~~~
