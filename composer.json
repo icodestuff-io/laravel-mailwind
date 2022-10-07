@@ -15,7 +15,6 @@
             "role": "Developer"
         }
     ],
-    "bin": ["mw"],
     "require": {
         "php": "^8.0",
         "spatie/laravel-package-tools": "^1.13.0",

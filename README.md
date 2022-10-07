@@ -11,6 +11,8 @@
 ## About Laravel MailWind
 Use TailwindCSS to design your Laravel Mailables instead of relying on markdown or inline styles.
 
+> It is required you have Node.js install on your machine as we use https://github.com/soheilpro/mailwind under the hood.
+
 
 ## Installation
 
@@ -20,7 +22,7 @@ You can install the package via composer:
 composer require icodestuff/laravel-mailwind
 ```
 
-You can publish the views with:
+You need to publish the views with:
 
 ```bash
 php artisan vendor:publish --tag="mailwind-views"

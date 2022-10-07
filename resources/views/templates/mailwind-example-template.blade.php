@@ -40,7 +40,7 @@
                     <span>🤔</span>
                     <div>
                         <h3 class="text-lg">How does MailWind work?</h3>
-                        <p class="text-sm text-gray-600">MailWind uses the  <a href="#" class="text-blue-500">npm mailwind package</a> under the hood to compile your blade files into inline html code.</p>
+                        <p class="text-sm text-gray-600">MailWind uses the  <a href="https://github.com/soheilpro/mailwind" class="text-blue-500">npm mailwind package</a> under the hood to compile your blade files into inline html code.</p>
                     </div>
                 </li>
 
@@ -48,7 +48,7 @@
                     <span>🤔</span>
                     <div>
                         <h3 class="text-lg">How to get started with MailWind?</h3>
-                        <p class="text-sm text-gray-600"> Checkout the Github repository README.md to learn how to get started</p>
+                        <p class="text-sm text-gray-600"> Checkout the Github repository <a href="https://github.com/icodestuff-io/laravel-mailwind" class="text-blue-500">README.md</a> to learn how to get started</p>
                     </div>
                 </li>
 
