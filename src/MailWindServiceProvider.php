@@ -3,6 +3,7 @@
 namespace Icodestuff\MailWind;
 
 use Icodestuff\MailWind\Commands\MailWindCompileCommand;
+use Icodestuff\MailWind\Commands\MailWindCreateTemplateCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -19,6 +20,9 @@ class MailWindServiceProvider extends PackageServiceProvider
             ->name('laravel-mailwind')
             ->hasConfigFile('mailwind')
             ->hasViews('mailwind')
-            ->hasCommand(MailWindCompileCommand::class);
+            ->hasCommands([
+                MailWindCompileCommand::class,
+                MailWindCreateTemplateCommand::class,
+            ]);
     }
 }

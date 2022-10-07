@@ -2,7 +2,7 @@
 
 namespace Icodestuff\MailWind;
 
-use Icodestuff\MailWind\Exceptions\NpxFailedException;
+use Icodestuff\MailWind\Exceptions\CompilationFailedException;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Cache\Repository as CacheRepository;
 use Illuminate\Filesystem\Filesystem;
@@ -26,23 +26,24 @@ class MailWind
      *
      * @throws \Psr\SimpleCache\InvalidArgumentException
      */
-    public function compile(string $viewName): string
+    public function compile(string $viewName, bool $regenerate = false): string
     {
         $this->filesystem->ensureDirectoryExists(resource_path('views/vendor/mailwind/'));
 
         if (! $this->viewFactory->exists($viewName)) {
-            throw new ViewException("The view:  $viewName does not exist.");
+            throw new ViewException("The view: $viewName does not exist.");
         }
 
         $viewPath = view($viewName)->getPath();
 
-        $cachedFileName = $this->cacheRepository->get($viewPath);
+        $cachedFileName = $regenerate ? null : $this->cacheRepository->get($viewName);
 
         if ($cachedFileName === null) {
             $cachedFileName = $this->generateMailwindTemplate($viewPath);
         }
 
         $cachedFileExists = $this->filesystem->exists(resource_path("views/vendor/mailwind/generated/$cachedFileName"));
+
         if ($cachedFileExists === false) {
             $cachedFileName = $this->generateMailwindTemplate($viewPath);
         }
@@ -58,11 +59,17 @@ class MailWind
         $fileName = Str::random().'.blade.php';
         $cachedFilePath = resource_path("views/vendor/mailwind/generated/$fileName");
 
-        $command = './vendor/bin/mw --input-html '.$viewPath.' --output-html '.$cachedFilePath;
+        exec('npm -v', $output, $exitCode);
 
-        $output = shell_exec($command);
-        if ($output === false) {
-            throw new NpxFailedException("Failed to run the npx command: `$command`");
+        if ($exitCode !== 0) {
+            throw new \Exception('NPM is not installed. Please install Node.js');
+        }
+
+        $command = 'npx mailwind --input-html '.$viewPath.' --output-html '.$cachedFilePath;
+        exec($command, $output, $exitCode);
+
+        if ($exitCode !== 0) {
+            throw new CompilationFailedException("Failed to run the the mailwind binary: `$command`");
         }
 
         return $fileName;

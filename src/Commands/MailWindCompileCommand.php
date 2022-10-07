@@ -4,7 +4,7 @@ namespace Icodestuff\MailWind\Commands;
 
 use Icodestuff\MailWind\MailWind;
 use Illuminate\Console\Command;
-use Illuminate\Filesystem\FilesystemManager;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 
 class MailWindCompileCommand extends Command
@@ -23,9 +23,15 @@ class MailWindCompileCommand extends Command
      */
     protected $description = 'Compile all TailwindCSS email templates to valid email HTML.';
 
-    public function handle(FilesystemManager $filesystemManager, MailWind $mailWind): int
+    public function handle(Filesystem $filesystem, MailWind $mailWind): int
     {
-        $files = $filesystemManager->files(resource_path('views/mail/template'));
+        $cachedFiles = array_filter($filesystem->files(resource_path('views/vendor/mailwind/generated')), function ($file) {
+            return ! str_contains($file, '.gitignore');
+        });
+        $filesystem->delete($cachedFiles);
+
+        $files = $filesystem->files(resource_path('views/vendor/mailwind/templates'));
+
         foreach ($files as $file) {
             if (! Str::contains($file->getFilename(), '.blade.php')) {
                 $this->warn("Invalid file extension for: {$file->getFilename()}. Skipped.");
@@ -33,9 +39,11 @@ class MailWindCompileCommand extends Command
                 continue;
             }
 
-            $viewName = 'mail.template.'.Str::remove('.blade.php', $file->getFilename());
-            $res = $mailWind->compile($viewName);
-            dd($res);
+            $viewName = 'mailwind::templates.'.Str::remove('.blade.php', $file->getFilename());
+
+            $cachedView = $mailWind->compile($viewName, true);
+
+            $this->info("Compiled template for {$file->getFilename()} — $cachedView");
         }
 
         return self::SUCCESS;

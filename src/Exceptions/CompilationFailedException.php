@@ -2,6 +2,6 @@
 
 namespace Icodestuff\MailWind\Exceptions;
 
-class NpxFailedException extends \Exception
+class CompilationFailedException extends \Exception
 {
 }
