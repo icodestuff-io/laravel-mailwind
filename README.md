@@ -27,11 +27,7 @@ php artisan vendor:publish --tag="mailwind-views"
 ```
 
 ## Usage
-1. Mailable
-2. Template
-3. Generated / Compiled
-4. Command
-#### 1. Create a template
+### 1. Create a template
 By default, MailWind exports an example template called: `mailwind-example-template.blade.php`. 
 
 If you want to create a new template, you can run: 
@@ -43,7 +39,7 @@ which will generate the file `resources/views/vendor/mailwind/templates/my-templ
 > In order to use MailWind, you **MUST** add new templates to the `resources/views/vendor/mailwind/templates`. Note, we don't currently support subdirectories within 
 the `templates/` folder.
 
-#### 2. Compile your template
+### 2. Compile your template
 In order for your mailables to pickup on new template changes, you must use the MailWind compile command: 
 
 `php artisan mailwind:compile`
@@ -53,12 +49,12 @@ all generated files are ignored by git, so you will need to run the `php artisan
 `npm run prod`. 
 
 
-#### 3. Create a Mailable
+### 3. Create a Mailable
 Generate a Laravel mailable by running: 
 
 `php artisan make:mail YourMailable`
 
-#### 4. Prepare your Mailable
+### 4. Prepare your Mailable
 To associate MailWind with a mailable, the mailable must implement the following trait:
 ~~~php 
 namespace App\Mail;
@@ -91,7 +87,7 @@ public function build()
 }
 ~~~
 
-#### 5. Send the Mailable
+### 5. Send the Mailable
 Run `php artisan tinker` then paste
 
 `Mail::to('test@example.com')->send(new App\Mail\YourMailable())`
