@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/icodestuff-io/laravel-mailwind/blob/main/mailwind-logo-transparent.png?raw=true" alt="Laravel Enum" width="250" style="margin-bottom: 20px"></p>
+<p align="center"><img src="./mailwind-logo-transparent.png?raw=true" alt="Laravel Enum" width="250" style="margin-bottom: 20px"></p>
 <p align="center">
 <a href="https://packagist.org/packages/icodestuff/laravel-mailwind"><img src="https://img.shields.io/packagist/v/icodestuff/laravel-mailwind.svg?style=flat-square" alt="Latest Version on Packagist"></a>
 <a href="https://packagist.org/packages/icodestuff/laravel-mailwind"><img src="https://img.shields.io/github/workflow/status/icodestuff-io/laravel-mailwind/run-tests?label=tests" alt="GitHub Tests Action Status"></a>
