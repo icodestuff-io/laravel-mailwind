@@ -35,7 +35,7 @@ class MailWindCreateTemplateCommand extends Command
         try {
             $filesystem->put(
                 $newFilePath,
-                file_get_contents(__DIR__.'../../resources/views/templates/mailwind-example-template.blade.php')
+                file_get_contents( dirname(__DIR__, 2) . '/resources/views/templates/mailwind-example-template.blade.php')
             );
         } catch (\Exception $exception) {
             $this->warn($exception->getMessage());
