@@ -34,7 +34,9 @@ By default, MailWind exports an example template called: `mailwind-example-templ
 
 If you want to create a new template, you can run: 
 
-`php artisan mailwind:new MyTemplate`
+```bash
+php artisan mailwind:new MyTemplate
+```
 
 which will generate the file `resources/views/vendor/mailwind/templates/my-template.blade.php`.
 
@@ -44,7 +46,9 @@ the `templates/` folder.
 ### 2. Compile your template
 In order for your mailables to pickup on new template changes, you must use the MailWind compile command: 
 
-`php artisan mailwind:compile`
+```bash
+php artisan mailwind:compile
+```
 
 which will generate compiled views within the `resources/views/vendor/mailwind/generated` directory. Note,
 all generated files are ignored by git, so you will need to run the `php artisan mailwind:compile` in your deployment scripts similar to
@@ -54,7 +58,9 @@ all generated files are ignored by git, so you will need to run the `php artisan
 ### 3. Create a Mailable
 Generate a Laravel mailable by running: 
 
-`php artisan make:mail YourMailable`
+```bash 
+php artisan make:mail YourMailable
+```
 
 ### 4. Prepare your Mailable
 To associate MailWind with a mailable, the mailable must implement the following trait:
@@ -92,7 +98,9 @@ public function build()
 ### 5. Send the Mailable
 Run `php artisan tinker` then paste
 
-`Mail::to('test@example.com')->send(new App\Mail\YourMailable())`
+```bash  
+Mail::to('test@example.com')->send(new App\Mail\YourMailable())
+```
 
 to send out your email. If you are using Mailhog, you can visit http://localhost:8025/ to see the email: 
 ![Mailhog Screenshot](mailhog-screenshot.png)
