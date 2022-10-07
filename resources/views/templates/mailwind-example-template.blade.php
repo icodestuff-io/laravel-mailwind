@@ -12,7 +12,7 @@
     <div class="mx-auto max-w-2xl bg-gray-50 pb-5 shadow">
         <!-- Header -->
         <div class="flex items-center justify-center bg-gray-50 py-0">
-            <img src="https://github.com/icodestuff-io/laravel-mailwind/blob/main/mailwind-logo-transparent.png?raw=true" class="h-36" alt="MailWind logo" />
+            <img src="https://github.com/icodestuff-io/laravel-mailwind/blob/master/mailwind-logo-transparent.png?raw=true" class="h-36" alt="MailWind logo" />
         </div>
 
         <!-- Title -->
