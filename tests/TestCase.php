@@ -1,8 +1,8 @@
 <?php
 
-namespace Icodestuff\MailWind\Tests;
+namespace Icodestuff\Mailwind\Tests;
 
-use Icodestuff\MailWind\MailWindServiceProvider;
+use Icodestuff\Mailwind\MailwindServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -10,7 +10,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            MailWindServiceProvider::class,
+            MailwindServiceProvider::class,
         ];
     }
 }

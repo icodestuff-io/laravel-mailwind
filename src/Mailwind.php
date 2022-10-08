@@ -1,22 +1,24 @@
 <?php
 
-namespace Icodestuff\MailWind;
+namespace Icodestuff\Mailwind;
 
-use Icodestuff\MailWind\Exceptions\CompilationFailedException;
+use Icodestuff\Mailwind\Exceptions\CompilationFailedException;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Cache\Repository as CacheRepository;
+use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Illuminate\View\Factory as ViewFactory;
 use Illuminate\View\ViewException;
 
-class MailWind
+class Mailwind
 {
     public function __construct(
         protected Filesystem $filesystem,
         protected ViewFactory $viewFactory,
         protected CacheManager $cacheManager,
-        protected CacheRepository $cacheRepository
+        protected CacheRepository $cacheRepository,
+        protected Kernel $kernel
     ) {
     }
 
@@ -59,23 +61,13 @@ class MailWind
         $fileName = Str::random().'.blade.php';
         $cachedFilePath = resource_path("views/vendor/mailwind/generated/$fileName");
 
-        exec('npm -v', $output, $exitCode);
+        $exitCode = $this->kernel->call('mailwind:generate', [
+            '--input-html' => $viewPath,
+            '--output-html' => $cachedFilePath,
+        ]);
 
         if ($exitCode !== 0) {
-            throw new \Exception('NPM is not installed. Please install Node.js');
-        }
-
-        exec('mailwind --version', $output, $exitCode);
-
-        if ($exitCode !== 0) {
-            throw new \Exception('NPM is not installed. Please run `npm install mailwind`');
-        }
-
-        $command = 'mailwind --input-html '.$viewPath.' --output-html '.$cachedFilePath;
-        exec($command, $output, $exitCode);
-
-        if ($exitCode !== 0) {
-            throw new CompilationFailedException("Failed to run the command: `$command`");
+            throw new CompilationFailedException("Failed to run compile command: `$viewPath`");
         }
 
         return $fileName;

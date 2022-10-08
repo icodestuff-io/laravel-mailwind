@@ -8,7 +8,7 @@
 
 ![mailwind-example](./mailwind-screenshot.png)
 
-## About Laravel MailWind
+## About Laravel Mailwind
 Use TailwindCSS to design your Laravel Mailables instead of relying on markdown or inline styles.
 
 #### Requires
@@ -38,7 +38,7 @@ npm install mailwind
 ```
 
 ### 2. Create a template
-By default, MailWind exports an example template called: `mailwind-example-template.blade.php`. 
+By default, Mailwind exports an example template called: `mailwind-example-template.blade.php`. 
 
 If you want to create a new template, you can run: 
 
@@ -48,11 +48,11 @@ php artisan mailwind:new MyTemplate
 
 which will generate the file `resources/views/vendor/mailwind/templates/my-template.blade.php`.
 
-> In order to use MailWind, you **MUST** add new templates to the `resources/views/vendor/mailwind/templates`. Note, we don't currently support subdirectories within 
+> In order to use Mailwind, you **MUST** add new templates to the `resources/views/vendor/mailwind/templates`. Note, we don't currently support subdirectories within 
 the `templates/` folder.
 
 ### 3. Compile your template
-In order for your mailables to pickup on new template changes, you must use the MailWind compile command: 
+In order for your mailables to pickup on new template changes, you must use the Mailwind compile command: 
 
 ```bash
 php artisan mailwind:compile
@@ -71,11 +71,11 @@ php artisan make:mail YourMailable
 ```
 
 ### 5. Prepare your Mailable
-To associate MailWind with a mailable, the mailable must implement the following trait:
+To associate Mailwind with a mailable, the mailable must implement the following trait:
 ~~~php 
 namespace App\Mail;
 
-use Icodestuff\MailWind\Traits\InteractsWithMailWind;
+use Icodestuff\Mailwind\Traits\InteractsWithMailWind;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -99,7 +99,7 @@ like so:
 public function build()
 {
     return $this->view('mailwind::templates.my-template') // maps to: resources/views/vendor/mailwind/templates/my-template.blade.php
-        ->subject('MailWind Example Email');
+        ->subject('Mailwind Example Email');
 }
 ~~~
 

@@ -1,5 +1,5 @@
 <?php
 
-use Icodestuff\MailWind\Tests\TestCase;
+use Icodestuff\Mailwind\Tests\TestCase;
 
 //uses(TestCase::class)->in(__DIR__);

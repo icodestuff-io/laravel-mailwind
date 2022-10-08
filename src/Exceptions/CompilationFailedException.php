@@ -1,6 +1,6 @@
 <?php
 
-namespace Icodestuff\MailWind\Exceptions;
+namespace Icodestuff\Mailwind\Exceptions;
 
 class CompilationFailedException extends \Exception
 {

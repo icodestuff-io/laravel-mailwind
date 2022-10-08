@@ -1,25 +1,25 @@
 <?php
 
-namespace Icodestuff\MailWind\Commands;
+namespace Icodestuff\Mailwind\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 
-class MailWindCreateTemplateCommand extends Command
+class CreateMailTemplateCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'mailwind:new {name : The name of the template} {--F|force}';
+    protected $signature = 'mailwind:create {name : The name of the template} {--F|force}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new MailWind blade template.';
+    protected $description = 'Create a new Mailwind blade template.';
 
     public function handle(Filesystem $filesystem): int
     {

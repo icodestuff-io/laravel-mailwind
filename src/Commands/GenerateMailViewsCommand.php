@@ -1,20 +1,20 @@
 <?php
 
-namespace Icodestuff\MailWind\Commands;
+namespace Icodestuff\Mailwind\Commands;
 
-use Icodestuff\MailWind\MailWind;
+use Icodestuff\Mailwind\Mailwind;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 
-class MailWindCompileCommand extends Command
+class GenerateMailViewsCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'mailwind:compile';
+    protected $signature = 'mailwind:generate';
 
     /**
      * The console command description.
@@ -23,7 +23,7 @@ class MailWindCompileCommand extends Command
      */
     protected $description = 'Compile all TailwindCSS email templates to valid email HTML.';
 
-    public function handle(Filesystem $filesystem, MailWind $mailWind): int
+    public function handle(Filesystem $filesystem, Mailwind $mailWind): int
     {
         $cachedFiles = array_filter($filesystem->files(resource_path('views/vendor/mailwind/generated')), function ($file) {
             return ! str_contains($file, '.gitignore');

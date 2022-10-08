@@ -1,13 +1,14 @@
 <?php
 
-namespace Icodestuff\MailWind;
+namespace Icodestuff\Mailwind;
 
-use Icodestuff\MailWind\Commands\MailWindCompileCommand;
-use Icodestuff\MailWind\Commands\MailWindCreateTemplateCommand;
+use Icodestuff\Mailwind\Commands\CompileMailTemplateCommand;
+use Icodestuff\Mailwind\Commands\CreateMailTemplateCommand;
+use Icodestuff\Mailwind\Commands\GenerateMailViewsCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class MailWindServiceProvider extends PackageServiceProvider
+class MailwindServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -21,8 +22,9 @@ class MailWindServiceProvider extends PackageServiceProvider
             ->hasConfigFile('mailwind')
             ->hasViews('mailwind')
             ->hasCommands([
-                MailWindCompileCommand::class,
-                MailWindCreateTemplateCommand::class,
+                GenerateMailViewsCommand::class,
+                CreateMailTemplateCommand::class,
+                CompileMailTemplateCommand::class,
             ]);
     }
 }

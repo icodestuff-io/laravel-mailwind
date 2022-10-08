@@ -17,8 +17,9 @@
     ],
     "require": {
         "php": "^8.0",
+        "illuminate/contracts": "^9.0",
         "spatie/laravel-package-tools": "^1.13.0",
-        "illuminate/contracts": "^9.0"
+        "tijsverkoyen/css-to-inline-styles": "^2.2"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
@@ -35,12 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Icodestuff\\MailWind\\": "src"
+            "Icodestuff\\Mailwind\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Icodestuff\\MailWind\\Tests\\": "tests"
+            "Icodestuff\\Mailwind\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -59,10 +60,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Icodestuff\\MailWind\\MailWindServiceProvider"
+                "MailwindServiceProvider"
             ],
             "aliases": {
-                "MailWind": "Icodestuff\\MailWind\\Facades\\MailWind"
+                "Mailwind": "Mailwind"
             }
         }
     },

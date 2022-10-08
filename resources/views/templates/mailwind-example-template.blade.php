@@ -5,25 +5,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="color-scheme" content="light">
     <meta name="supported-color-schemes" content="light">
-    <title>MailWind Example</title>
+    <title>Mailwind Example</title>
 </head>
 <body class="bg-gray-200">
 <main class="container mx-auto py-16">
     <div class="mx-auto max-w-2xl bg-gray-50 pb-5 shadow">
         <!-- Header -->
         <div class="flex items-center justify-center bg-gray-50 py-0">
-            <img src="https://github.com/icodestuff-io/laravel-mailwind/blob/master/mailwind-logo-transparent.png?raw=true" class="h-36" alt="MailWind logo" />
+            <img src="https://github.com/icodestuff-io/laravel-mailwind/blob/master/mailwind-logo-transparent.png?raw=true" class="h-36" alt="Mailwind logo" />
         </div>
 
         <!-- Title -->
         <div class="flex items-center justify-start bg-white py-4 px-8">
-            <h1 class="text-2xl font-bold tracking-wide text-gray-700 md:text-4xl">Welcome to MailWind 📤</h1>
+            <h1 class="text-2xl font-bold tracking-wide text-gray-700 md:text-4xl">Welcome to Mailwind 📤</h1>
         </div>
 
         <!-- Body -->
         <div class="mx-auto my-16 max-w-xl rounded-md bg-white p-5 shadow">
             <div class="mb-5">
-                <h1 class="text-center text-2xl font-medium text-gray-600">About MailWind</h1>
+                <h1 class="text-center text-2xl font-medium text-gray-600">About Mailwind</h1>
                 <h1 class="mt-2 text-center text-sm font-light text-gray-600">Rethink the way you write Laravel Mailables</h1>
             </div>
 
@@ -31,23 +31,23 @@
                 <li class="flex items-center justify-start space-x-3">
                     <span>🤔</span>
                     <div>
-                        <h3 class="text-lg">What is MailWind?</h3>
-                        <p class="text-sm text-gray-600">MailWind allows you to use TailwindCSS to design your Laravel Mailables instead of relying on markdown or inline styles.</p>
+                        <h3 class="text-lg">What is Mailwind?</h3>
+                        <p class="text-sm text-gray-600">Mailwind allows you to use TailwindCSS to design your Laravel Mailables instead of relying on markdown or inline styles.</p>
                     </div>
                 </li>
 
                 <li class="flex items-center justify-start space-x-3">
                     <span>🤔</span>
                     <div>
-                        <h3 class="text-lg">How does MailWind work?</h3>
-                        <p class="text-sm text-gray-600">MailWind uses the  <a href="https://github.com/soheilpro/mailwind" class="text-blue-500">npm mailwind package</a> under the hood to compile your blade files into inline html code.</p>
+                        <h3 class="text-lg">How does Mailwind work?</h3>
+                        <p class="text-sm text-gray-600">Mailwind uses the  <a href="https://github.com/soheilpro/mailwind" class="text-blue-500">npm mailwind package</a> under the hood to compile your blade files into inline html code.</p>
                     </div>
                 </li>
 
                 <li class="flex items-center justify-start space-x-3">
                     <span>🤔</span>
                     <div>
-                        <h3 class="text-lg">How to get started with MailWind?</h3>
+                        <h3 class="text-lg">How to get started with Mailwind?</h3>
                         <p class="text-sm text-gray-600"> Checkout the Github repository <a href="https://github.com/icodestuff-io/laravel-mailwind" class="text-blue-500">README.md</a> to learn how to get started</p>
                     </div>
                 </li>
@@ -55,7 +55,7 @@
                 <li class="flex items-center justify-start space-x-3">
                     <span>🤔</span>
                     <div>
-                        <h3 class="text-lg">Who created Laravel MailWind?</h3>
+                        <h3 class="text-lg">Who created Laravel Mailwind?</h3>
                         <p class="text-sm text-gray-600"> Solomon Antoine, the founder of Icodestuff. You can find follow him on Twitter <a href="https://twitter.com/solocodes_me" class="text-blue-500">@solocodes_me</a> and on Github <a href="https://github.com/Solomon04" class="text-blue-500">@Solomon04</a></p>
                     </div>
                 </li>
@@ -83,7 +83,7 @@
                 </a>
             </div>
             <p class="text-xs text-center text-gray-500 mb-3">Made with ❤️ by Icodestuff </p>
-            <p class="text-xs text-center text-gray-500 mb-3">Copyright © {{\Carbon\Carbon::now()->year}} MailWind, all rights reserved. </p>
+            <p class="text-xs text-center text-gray-500 mb-3">Copyright © {{\Carbon\Carbon::now()->year}} Mailwind, all rights reserved. </p>
         </footer>
     </div>
 </main>
