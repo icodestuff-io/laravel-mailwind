@@ -74,7 +74,7 @@ class CompileMailTemplateCommand extends Command
 
         $tailwindConfigPath = $this->option('tailwind-config') ?? base_path('tailwind.config.js');
         $inputHtmlPath = $this->option('input-html');
-        $inputCSSPath = $this->option('input-css') ?? base_path('t.css');
+        $inputCSSPath = $this->option('input-css') ?? dirname(__DIR__, 2).'/resources/css/styles.css';
         $outputHtmlPath = $this->option('output-html');
 
         touch(storage_path('app/mailwind.css'));
