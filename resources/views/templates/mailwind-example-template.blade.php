@@ -32,15 +32,7 @@
                     <span>🤔</span>
                     <div>
                         <h3 class="text-lg">What is Mailwind?</h3>
-                        <p class="text-sm text-gray-600">Mailwind allows you to use TailwindCSS to design your Laravel Mailables instead of relying on markdown or inline styles.</p>
-                    </div>
-                </li>
-
-                <li class="flex items-center justify-start space-x-3">
-                    <span>🤔</span>
-                    <div>
-                        <h3 class="text-lg">How does Mailwind work?</h3>
-                        <p class="text-sm text-gray-600">Mailwind uses the  <a href="https://github.com/soheilpro/mailwind" class="text-blue-500">npm mailwind package</a> under the hood to compile your blade files into inline html code.</p>
+                        <p class="text-sm text-gray-600">Mailwind allows you to use TailwindCSS to design your Laravel Mailables instead of relying on markdown or inline styles. Inspired by the  <a href="https://github.com/soheilpro/mailwind" class="text-blue-500">npm mailwind package</a>.</p>
                     </div>
                 </li>
 
