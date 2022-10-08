@@ -13,7 +13,7 @@ Use TailwindCSS to design your Laravel Mailables instead of relying on markdown 
 
 #### Requires
 - Laravel 9
-- Node 14+
+- TailwindCSS
 
 
 ## Installation
@@ -30,47 +30,40 @@ You need to publish the views with:
 php artisan vendor:publish --tag="mailwind-views"
 ```
 
-## Usage
-### 1. Create a template
-Install the mailwind package by running: 
-```bash
-npm install mailwind
-```
-
-### 2. Create a template
+## Getting Started
+### Create a template 
 By default, Mailwind exports an example template called: `mailwind-example-template.blade.php`. 
 
 If you want to create a new template, you can run: 
 
 ```bash
-php artisan mailwind:new MyTemplate
+php artisan mailwind:create MyTemplate
 ```
-
-which will generate the file `resources/views/vendor/mailwind/templates/my-template.blade.php`.
+which will generate the file `my-template.blade.php` within `resources/views/vendor/mailwind/templates`.
 
 > In order to use Mailwind, you **MUST** add new templates to the `resources/views/vendor/mailwind/templates`. Note, we don't currently support subdirectories within 
 the `templates/` folder.
 
-### 3. Compile your template
-In order for your mailables to pickup on new template changes, you must use the Mailwind compile command: 
+### Generate mail views
+In order for your mailables to pickup on new template changes, you must use the Mailwind generate command: 
 
 ```bash
-php artisan mailwind:compile
+php artisan mailwind:generate
 ```
 
 which will generate compiled views within the `resources/views/vendor/mailwind/generated` directory. Note,
-all generated files are ignored by git, so you will need to run the `php artisan mailwind:compile` in your deployment scripts similar to
+all generated files are ignored by git, so you will need to run the `php artisan mailwind:generate` in your deployment scripts similar to
 `npm run prod`. 
 
 
-### 4. Create a Mailable
+### Create a Mailable
 Generate a Laravel mailable by running: 
 
 ```bash 
 php artisan make:mail YourMailable
 ```
 
-### 5. Prepare your Mailable
+### Prepare your Mailable
 To associate Mailwind with a mailable, the mailable must implement the following trait:
 ~~~php 
 namespace App\Mail;
@@ -103,7 +96,7 @@ public function build()
 }
 ~~~
 
-### 6. Send the Mailable
+### Send the Mailable
 Run `php artisan tinker` then paste
 
 ```bash  
