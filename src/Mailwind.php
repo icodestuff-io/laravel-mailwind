@@ -61,7 +61,7 @@ class Mailwind
         $fileName = Str::random().'.blade.php';
         $cachedFilePath = resource_path("views/vendor/mailwind/generated/$fileName");
 
-        $exitCode = $this->kernel->call('mailwind:generate', [
+        $exitCode = $this->kernel->call('mailwind:compile', [
             '--input-html' => $viewPath,
             '--output-html' => $cachedFilePath,
         ]);
