@@ -67,12 +67,19 @@ class CompileMailTemplateCommand extends Command
         $tailwindCSSPath = base_path('node_modules/tailwindcss/lib/cli.js');
 
         if (! file_exists($tailwindCSSPath)) {
-            $this->warn('Please install TailwindCSS in your project by running: `npm install tailwindcss`');
+            $this->warn('Please install TailwindCSS in your project: https://tailwindcss.com/docs/guides/laravel');
 
             return self::FAILURE;
         }
 
-        $tailwindConfigPath = $this->option('tailwind-config') ?? base_path('tailwind.config.js');
+        $tailwindConfigPath = base_path('tailwind.config.js');
+        if (! file_exists($tailwindConfigPath)) {
+            $this->warn('Please create a tailwind config file: https://tailwindcss.com/docs/guides/laravel');
+
+            return self::FAILURE;
+        }
+
+
         $inputHtmlPath = $this->option('input-html');
         $inputCSSPath = $this->option('input-css') ?? dirname(__DIR__, 2).'/resources/css/styles.css';
         $outputHtmlPath = $this->option('output-html');

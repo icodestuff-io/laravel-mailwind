@@ -38,11 +38,18 @@ class Mailwind
 
         $viewPath = view($viewName)->getPath();
 
-        $cachedFileName = $regenerate ? null : $this->cacheRepository->get($viewName);
+        $cache = $regenerate ? null : $this->cacheRepository->get($viewName);
 
-        if ($cachedFileName === null) {
-            $cachedFileName = $this->generateMailwindTemplate($viewPath);
+        // Generate new cache
+        if (!is_array($cache)) {
+            $cache = [
+                'file' => $this->generateMailwindTemplate($viewPath),
+                'hash' => md5_file($viewPath)
+            ];
         }
+
+        $cachedFileName = $cache['file'] ?? $this->generateMailwindTemplate($viewPath);
+        $hash = $cache['hash'] ?? md5_file($viewPath);
 
         $cachedFileExists = $this->filesystem->exists(resource_path("views/vendor/mailwind/generated/$cachedFileName"));
 
@@ -50,8 +57,18 @@ class Mailwind
             $cachedFileName = $this->generateMailwindTemplate($viewPath);
         }
 
+        // Contents of file changed,
+        if ($hash !== md5_file($viewPath)) {
+            $hash = md5_file($viewPath);
+            $cachedFileName = $this->generateMailwindTemplate($viewPath);
+        }
+
         $view = Str::remove('.blade.php', $cachedFileName);
-        $this->cacheManager->set($viewName, $cachedFileName);
+
+        $this->cacheManager->set($viewName, [
+            'file' => $cachedFileName,
+            'hash' => $hash
+        ]);
 
         return "mailwind::generated.$view";
     }
@@ -66,8 +83,10 @@ class Mailwind
             '--output-html' => $cachedFilePath,
         ]);
 
+
         if ($exitCode !== 0) {
-            throw new CompilationFailedException("Failed to run compile command: `$viewPath`");
+            $output = $this->kernel->output();
+            throw new CompilationFailedException("Failed to run compile command: `$output`");
         }
 
         return $fileName;
