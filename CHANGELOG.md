@@ -2,6 +2,10 @@
 
 All notable changes to `:package_name` will be documented in this file.
 
+## v2.1.0 - 2022-10-10
+
+After testing on multiple email platforms and realizing most email clients are still stuck in 1999 I am sad to announce this package will likely never be production ready until email clients are updated. 😭
+
 ## v1.1.0 - 2022-10-07
 
 Configure correct directory for `file_get_contents()`
