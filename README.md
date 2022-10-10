@@ -6,10 +6,8 @@
 <a href="https://packagist.org/packages/icodestuff/laravel-mailwind"><img src="https://img.shields.io/packagist/dt/icodestuff/laravel-mailwind.svg?style=flat-square" alt="Total Downloads"></a>
 </p>
 
-![mailwind-example](./mailwind-screenshot.png)
-
 ## About Laravel Mailwind
-Use TailwindCSS to design your Laravel Mailables instead of relying on markdown or inline styles.
+Use TailwindCSS to design your Laravel Mailables instead of relying on markdown or inline styles. **NOTE after testing this package on multiple email clients, I am sad to announce it'll likely never be production ready 😢**
 
 #### Requires
 - Laravel 9
@@ -45,26 +43,25 @@ which will generate the file `my-template.blade.php` within `resources/views/ven
 the `templates/` folder.
 
 ### Generate mail views
-In order for your mailables to pickup on new template changes, you must use the Mailwind generate command: 
+By default, Mailwind picks up on changes to your email template but if you want to regenerate all of your views, you can run the generate command: 
 
 ```bash
 php artisan mailwind:generate
 ```
 
-which will generate compiled views within the `resources/views/vendor/mailwind/generated` directory. Note,
-all generated files are ignored by git, so you will need to run the `php artisan mailwind:generate` in your deployment scripts similar to
+which will generate compiled views within the `resources/views/vendor/mailwind/generated` directory.  Note,
+all generated files are ignored by git, so it is recommended to run the `php artisan mailwind:generate` in your deployment scripts similar to
 `npm run prod`. 
 
 
-### Create a Mailable
-Generate a Laravel mailable by running: 
+### Prepare your Mailable
+Generate a new Laravel mailable by running: 
 
 ```bash 
 php artisan make:mail YourMailable
 ```
 
-### Prepare your Mailable
-To associate Mailwind with a mailable, the mailable must implement the following trait:
+Then associate Mailwind with a mailable by implementing the trait `InteractsWithMailWind` like so:
 ~~~php 
 namespace App\Mail;
 
@@ -81,7 +78,7 @@ class YourMailable extends Mailable
 }
 ~~~
 
-Then with the build method, use the template that we created within the `resources/views/vendor/mailwind/templates` directory
+Then within the build method, use the template that we created within the `resources/views/vendor/mailwind/templates` directory
 like so: 
 ~~~php 
 /**
