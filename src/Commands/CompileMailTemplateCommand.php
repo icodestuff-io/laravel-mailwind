@@ -79,7 +79,6 @@ class CompileMailTemplateCommand extends Command
             return self::FAILURE;
         }
 
-
         $inputHtmlPath = $this->option('input-html');
         $inputCSSPath = $this->option('input-css') ?? dirname(__DIR__, 2).'/resources/css/styles.css';
         $outputHtmlPath = $this->option('output-html');

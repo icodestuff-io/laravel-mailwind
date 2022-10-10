@@ -43,10 +43,10 @@ class Mailwind
         $cache = $regenerate ? null : $this->cacheRepository->get($viewName);
 
         // Generate new cache
-        if (!is_array($cache)) {
+        if (! is_array($cache)) {
             $cache = [
                 'file' => $this->generateMailwindTemplate($viewPath),
-                'hash' => md5_file($viewPath)
+                'hash' => md5_file($viewPath),
             ];
         }
 
@@ -69,7 +69,7 @@ class Mailwind
 
         $this->cacheManager->set($viewName, [
             'file' => $cachedFileName,
-            'hash' => $hash
+            'hash' => $hash,
         ]);
 
         return "mailwind::generated.$view";
@@ -84,7 +84,6 @@ class Mailwind
             '--input-html' => $viewPath,
             '--output-html' => $cachedFilePath,
         ]);
-
 
         if ($exitCode !== 0) {
             $output = $this->kernel->output();
