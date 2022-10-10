@@ -30,6 +30,8 @@ class Mailwind
      */
     public function compile(string $viewName, bool $regenerate = false): string
     {
+        // @todo add https://github.com/soundasleep/html2text
+        // @todo add support for svg to base64
         $this->filesystem->ensureDirectoryExists(resource_path('views/vendor/mailwind/'));
 
         if (! $this->viewFactory->exists($viewName)) {
